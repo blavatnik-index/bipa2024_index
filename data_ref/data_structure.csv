@@ -1,0 +1,79 @@
+﻿structure_id,level,name,label
+0,index,bipa_index,Blavatnik Index of Public Administration
+10000,domain,strled,Strategy & Leadership
+10100,theme,strled_str,Strategic capacity
+10101,indicator,str_adaptation,Adaptation
+10102,indicator,str_prioritisation,Prioritisation
+10200,theme,strled_clb,Collaboration
+10201,indicator,clb_policy,Policy collaboration
+10202,indicator,clb_international,International collaboration
+10300,theme,strled_opn,Openness & communications
+10301,indicator,opn_rti,Access to information
+10302,indicator,opn_government,Open government
+10303,indicator,opn_engagement,Engagement and feedback
+10304,indicator,opn_communication,Public communication
+10400,theme,strled_int,Trust & integrity
+10401,indicator,int_impartiality,Impartial behaviour
+10402,indicator,int_corrupution,Corruption
+10403,indicator,int_sanctions,Sanctions
+10404,indicator,int_framework,Integrity framework
+10405,indicator,int_conflicts,Conflicts of interest
+10406,indicator,int_data,Integrity data
+10500,theme,strled_inv,Innovation
+10501,indicator,inv_approaches,Innovative approach
+20000,domain,pubpol,Public Policy
+20100,theme,pubpol_pol,Policy making
+20101,indicator,pol_development,Policy coordination
+20102,indicator,pol_expertise,Policy expertise
+20103,indicator,pol_evaluation,Policy evaluation
+20200,theme,pubpol_fin,Financial management
+20201,indicator,fin_documents,Budget documents
+20202,indicator,fin_data,Public finance data
+20203,indicator,fin_consultation,Budget consultation
+20204,indicator,fin_control,Internal control
+20205,indicator,fin_oversight,Oversight
+20300,theme,pubpol_reg,Regulation
+20301,indicator,reg_assessment,Impact assessment
+20302,indicator,reg_enforcement,Regulatory enforcement
+20400,theme,publpol_crm,Crisis & risk management
+20401,indicator,crm_hazards,Natural hazards
+20402,indicator,crm_cyber,Cybersecurity
+20500,theme,pubpol_dat,Use of data
+20501,indicator,dat_capability,Data capability and governance
+20502,indicator,dat_availability,Data availability
+20503,indicator,dat_coverage,Data coverage
+20504,indicator,dat_reuse,Data re-use
+30000,domain,natdel,National Delivery
+30100,theme,natdel_sys,System oversight
+30101,indicator,sys_implementation,Policy implementation
+30102,indicator,sys_monitoring,Policy monitoring
+30103,indicator,sys_subnational,Subnational relations
+30200,theme,natdel_dig,Digital services
+30201,indicator,dig_strategy,Digital strategy & policy
+30202,indicator,dig_infrastructure,Cross-government infrastructure
+30203,indicator,dig_usercentric,User centric design
+30204,indicator,dig_services,End-user services
+30300,theme,natdel_tax,Tax administration
+30301,indicator,tax_organisation,Tax organisation
+30302,indicator,tax_compliance,Tax compliance
+30303,indicator,tax_digital,Digital tax channels
+30400,theme,natdel_brd,Border services
+30401,indicator,brd_customs,Customs
+30500,theme,natdel_ssa,Social security administration
+30501,indicator,ssa_infosystems,Social security digital services
+40000,domain,pplprc,People & Processes
+40100,theme,pplprc_eng,Employee engagement
+40101,indicator,eng_learning,Learning & development
+40200,theme,pplprc_inc,Diversity & inclusion
+40201,indicator,inc_recruitment,Inclusive recruitment
+40202,indicator,inc_gender,Gender diversity
+40203,indicator,inc_management,Gender diversity - management
+40300,theme,pplprc_hrm,HR management
+40301,indicator,hrm_regime,HR regime
+40302,indicator,hrm_meritocratic,Meritocratic appointment
+40303,indicator,hrm_practices,HR practices
+40304,indicator,hrm_infosystems,HR information systems
+40400,theme,pplprc_pro,Procurement
+40401,indicator,pro_data,Procurement data
+40500,theme,pplpro_twk,Technology & workplaces
+40501,indicator,tch_adminsys,Administrative systems

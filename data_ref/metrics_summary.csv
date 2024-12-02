@@ -1,0 +1,83 @@
+﻿structure_id,metric_name,indicator,metric_label,source_variable,transformation,data_source,collection_type,ref_year,n_countries
+10102.01,strategic_priorities,Prioritisation,Setting priorities,To what extent does the government set and maintain strategic priorities?,BTI & SGI rescaling,BTI,Opinion - expert,2023,137
+10102.02,resource_efficiency,Prioritisation,Resource efficiency,"To what extent does the government make efficient use of available human, financial and organizational resources?",BTI & SGI rescaling,BTI,Opinion - expert,2023,137
+10102.03,strategic_influence,Prioritisation,Influence of strategy units,How much influence do strategic planning units and bodies have on government decision-making?,BTI & SGI rescaling,SGI,Opinion - expert,2022,41
+10102.04,review_priorities,Prioritisation,Reviewing policy priorities,Does the government office/prime minister's office have the expertise to evaluate ministerial draft bills according to the government's priorities?,BTI & SGI rescaling,SGI,Opinion - expert,2022,41
+10301.01,right_to_info,Right to information,Right to information,Right to information,None,ROLI,Opinion - expert & general public,2023,142
+10302.01,openness_portals,Open government,Open government and data portals,Open government and data portals,None,GTMI,Government self-assessment,2022,198
+10302.03,published_law,Open government,Published laws,Publicized laws and government data,None,ROLI,Opinion - expert & general public,2023,142
+10303.01,civic_consultation1,Engagement and feedback,Consultation with social actors,Does the government consult with societal actors in a fair and pluralistic manner?,BTI & SGI rescaling,SGI,Opinion - expert,2022,41
+10303.02,civic_consultation2,Engagement and feedback,Consultation with civil society,To what extent does the political leadership consult civil society actors in their plurality in policymaking?,BTI & SGI rescaling,BTI,Opinion - expert,2023,137
+10303.03,complaint_mechanisms,Engagement and feedback,Complaint mechanisms,Complaint mechanisms,None,ROLI,Opinion - expert & general public,2023,142
+10303.04,digital_participation,Engagement and feedback,Digital participation methods,Digital methods for public participation,None,GTMI,Government self-assessment,2022,198
+10401.01,impartial_implementation,Impartial behaviour,Policy implementation is impartial,"In your chosen country, how often do bureaucrats of the central government act impartially when implementing laws and regulations?",None,QOG,Opinion - expert,2020,84
+10401.02,interference_free,Impartial behaviour,Decisions free of interference,"In your chosen country, how often is day-to-day bureaucratic decision-making subject to interference from individual politicians?",Inverted,QOG,Opinion - expert,2020,83
+10401.03,administrative_processes,Impartial behaviour,Respect for due process,Due process is respected in administrative proceedings,None,ROLI,Opinion - expert & general public,2023,142
+10401.04,impartial_duties,Impartial behaviour,Officials impartial in their duties,Are public officials rigorous and impartial in the performance of their duties?,None,VDEM,Opinion - expert,2023,179
+10402.01,officials_corrupt,Corruption,Officials involved in corruption,How many of the following people do you think are involved in corruption or haven't you heard enough about them to say: Government officials,Inverted,GCB,Opinion - general public,2019-2021,110
+10402.02,favours_bribes,Corruption,Officials accept bribes,"How routinely do public sector employees grant favors in exchange for bribes, kickbacks, or other material inducements?",None,VDEM,Opinion - expert,2023,179
+10402.03,misuse_resources,Corruption,Officials misuse resources,"How often do public sector employees steal, embezzle, or misappropriate public funds or other state resources for personal or family use?",None,VDEM,Opinion - expert,2023,179
+10403.01,abuse_prosecuted,Sanctions,Officials prosecuted for abuse,To what extent are public officeholders who abuse their positions prosecuted or penalized?,None,BTI,Opinion - expert,2023,137
+10403.02,misconduct_sanctioned,Sanctions,Officials sanctioned for misconduct,Government officials are sanctioned for misconduct,None,ROLI,Opinion - expert & general public,2023,142
+10406.01,integrity_data,Integrity data,Data for public integrity,Integrity data availability and impact,None,GDB,Expert assessment,2021,109
+10501.01,innovative_flexibility,Innovative approach,Innovative and flexible approach,How innovative and flexible is the government?,None,BTI,Opinion - expert,2023,137
+10501.02,digital_innovation,Innovative approach,Digital innovation support,Support for digital innovations within government,None,GTMI,Government self-assessment,2022,198
+10501.03,tax_innovation,Innovative approach,Innovative tax agency,Use of innovative practices and technologies by the tax administration,None,ISORA,Government self-assessment,2019-2021,172
+20101.01,coordinate_policy1,Policy coordination,Coordinating policy proposals,How effectively do ministerial or cabinet committees coordinate cabinet proposals?,BTI & SGI rescaling,SGI,Opinion - expert,2022,41
+20101.02,coordinate_policy2,Policy coordination,Coordinating conflicting objectives,To what extent can the government coordinate conflicting objectives into a coherent policy?,BTI & SGI rescaling,BTI,Opinion - expert,2023,137
+20302.01,enforcement_effective,Regulatory enforcement,Regulations enforced effectively,Government regulations are effectively enforced,None,ROLI,Opinion - expert & general public,2023,142
+20302.02,enforcement_proper,Regulatory enforcement,Regulations enforced properly,Government regulations are applied and enforced without improper influence,None,ROLI,Opinion - expert & general public,2023,142
+20401.01,disaster_risk,Natural hazards,Disaster risk reduction strategies,Disaster risk reduction strategies,None,SFM,Government self-assessment,2019-2023,115
+20402.01,cyber_capacity,Cybersecurity,Cybersecurity capacity,Capacity building measures,None,GCI,Government self-assessment,2020,190
+20402.02,cyber_cooperation,Cybersecurity,Cybersecurity cooperation,Cooperative measures,None,GCI,Government self-assessment,2020,188
+20402.03,cyber_laws,Cybersecurity,Cybersecurity legal measures,Legal measures,None,GCI,Government self-assessment,2020,191
+20402.04,cyber_organisational,Cybersecurity,Cybersecurity organisational measures,Organisational measures,None,GCI,Government self-assessment,2020,191
+20402.05,cyber_technical,Cybersecurity,Cybersecurity technical measures,Technical measures,None,GCI,Government self-assessment,2020,191
+20501.01,data_governance,Data capability,Governance of data and statistics,Data governance,None,GDB,Expert assessment,2021,109
+20501.02,data_capability,Data capability,Data capability,Data capability,None,GDB,Expert assessment,2021,109
+20502.01,economic_statistics,Data availability,Economic statistics availability,Economic statistics openness,None,ODIN,Expert assessment,2022,195
+20502.02,company_data,Data availability,Company data availability,Company data availability and impact,None,GDB,Expert assessment,2021,109
+20502.03,land_data,Data availability,Land data availability,Land data availability and impact,None,GDB,Expert assessment,2021,109
+20502.04,social_statistics,Data availability,Social statistics availability,Social statistics openness,None,ODIN,Expert assessment,2022,195
+20502.05,health_data,Data availability,Health data availability,Health data availability,None,GDB,Expert assessment,2021,109
+20502.06,environmental_statistics,Data availability,Environmental statistics availability,Environmental statistics openness,None,ODIN,Expert assessment,2022,195
+20502.07,climate_data,Data availability,Climate data availability,Climate data availability,None,GDB,Expert assessment,2021,109
+20503.01,econstats_coverage,Data coverage,Economic statistics coverage,Economic statistics coverage,None,ODIN,Expert assessment,2022,195
+20503.02,envirostats_coverage,Data coverage,Environmental statistics coverage,Environmental statistics coverage,None,ODIN,Expert assessment,2022,195
+20503.03,socialstats_coverage,Data coverage,Social statistics coverage,Social statistics coverage,None,ODIN,Expert assessment,2022,195
+20504.01,statistics_usage,Data re-use,Use of statistics in policy documents,Use of statistics in national policy documents,None,PARIS21,Statistical analysis,2019-2020,183
+30101.01,policy_implementation1,Policy implementation,Achieve policy objectives,To what extent can the government achieve its own policy objectives?,BTI & SGI rescaling,SGI,Opinion - expert,2022,41
+30101.02,policy_implementation2,Policy implementation,Implement policy objectives,How effective is the government in implementing its own policies?,BTI & SGI rescaling,BTI,Opinion - expert,2023,137
+30201.01,digital_strategy,Digital strategy & policy,Digital strategy & policy,Strategies and policies for digital government,None,GTMI,Government self-assessment,2022,198
+30202.01,backend_infrastructure,Infrastructure,Technology and infrastructure,Back-end technologies and infrastructure,None,GTMI,Government self-assessment,2022,198
+30204.01,service_portals,Digital public services,End-user services,"Digital services and technologies for end-users (portals, e-payment, digital signatures)",None,GTMI,Government self-assessment,2022,198
+30301.01,tax_admincost,Tax agency administration,Administrative costs,Administrative costs (% of revenue),Inverted,ISORA,Administrative data,2019-2021,159
+30301.02,tax_staffturnover,Tax agency administration,Turnover of tax agency staff,Turnover of tax agency staff,Median distance,ISORA,Administrative data,2019-2021,165
+30302.01,corptax_filing,Tax compliance,Corporate taxes filed on-time,Corporate tax (% filed on-time),None,ISORA,Administrative data,2019-2021,152
+30302.02,perstax_filing,Tax compliance,Personal taxes filed on-time,Personal tax (% filed on-time),None,ISORA,Administrative data,2019-2021,143
+30302.03,corptax_payment,Tax compliance,Corporate taxes paid on-time,Corporate tax (% paid on-time),None,ISORA,Administrative data,2019-2021,119
+30302.04,perstax_payment,Tax compliance,Personal taxes paid on-time,Personal tax (% paid on-time),None,ISORA,Administrative data,2019-2021,111
+30302.05,tax_time,Tax compliance,Time to file taxes,Time to file business taxes,Inverted,DB,Administrative data,2020,180
+30302.06,tax_debt,Tax compliance,Tax debts/arrears,Tax debt (% of revenue),Inverted,ISORA,Administrative data,2019-2021,152
+30303.01,etax_corporate,Digital tax services,Corporate taxes filed electronically,Electronic filing: corporate tax,None,ISORA,Administrative data,2019-2021,142
+30303.02,etax_personal,Digital tax services,Personal taxes paid electronically,Electronic filing: personal tax,None,ISORA,Administrative data,2019-2021,135
+30303.03,etax_payment,Digital tax services,Taxes paid electronically,Electronic payments (%),None,ISORA,Administrative data,2019-2021,156
+30303.04,etax_contacts,Digital tax services,Digital channels for tax advice/help,Proportion of service contacts via digital channels,None,ISORA,Administrative data,2019-2021,129
+30401.01,customs_clearance,Customs processes,Efficiency of customs processes,Efficiency of customs processes,None,LPI,Opinion - businesses,2022,138
+40201.01,recruitment_gender,Inclusive recruitment,Inclusive recruitment: gender,Are state jobs equally open to qualified individuals regardless of gender?,None,VDEM,Opinion - expert,2023,176
+40201.02,recruitment_location,Inclusive recruitment,Inclusive recruitment: location,Are state jobs equally open to qualified individuals regardless of their rural or urban location?,None,VDEM,Opinion - expert,2023,176
+40201.03,recruitment_socioecon,Inclusive recruitment,Inclusive recruitment: socio-economic background,Are state jobs equally open to qualified individuals regardless of socio-economic position?,None,VDEM,Opinion - expert,2023,176
+40201.04,recruitment_social,Inclusive recruitment,Inclusive recruitment: social group,Are state jobs equally open to qualified individuals regardless of social group?,None,VDEM,Opinion - expert,2023,176
+40201.05,recruitment_political,Inclusive recruitment,Inclusive recruitment: political affiliation,Are state jobs equally open to qualified individuals regardless of their association with a political group?,None,VDEM,Opinion - expert,2023,176
+40202.01,gender_pubadmin,Gender diversity (all staff),Women in public administration (rate),Public administration employment: percent female,Distance from 50%,ILO,Official statistics,2019-2023,154
+40202.02,gender_taxofficials,Gender diversity (all staff),Women in tax agency workforce,Proportion of all tax officials that are female,Distance from 50%,ISORA,Government self-assessment,2019-2021,170
+40202.03,gender_payratio,Gender diversity (all staff),Ratio of female to male public-sector pay,Public sector pay ratio: female-to-male,Distance from 1,ILO,Official statistics,2019-2023,68
+40203.01,gender_managers,Gender diversity (management),Women in public sector management,Public sector managers: percent female,Distance from 50%,GSD/ILO,Official statistics,2019-2023,111
+40203.03,gender_seniortax,Gender diversity (management),Women in senior tax agency roles,Proportion of senior tax officials that are female,Distance from 50%,ISORA,Government self-assessment,2019-2021,163
+40301.01,recruitment_level,Recruitment regime,Recruitment level of entry,"On average, do most ministries and other bureaucratic agencies of the central government in your chosen country resemble closed or open type of organizations?",Inverted,QOG,Opinion - expert,2020,110
+40301.02,secure_tenure,Recruitment regime,Security of tenure,"In your chosen country, to what extent do bureaucrats working in ministries and other bureaucratic agencies of the central government enjoy security of tenure?",None,QOG,Opinion - expert,2020,90
+40302.01,recruitment_merit,Meritocratic appointment,Recruitment by merit,"In your chosen country, to what extent are appointments to bureaucratic positions in the central government based on individuals' merits - such as knowledge, skills and job-related experience?",None,QOG,Opinion - expert,2020,86
+40302.02,recruitment_patronage1,Meritocratic appointment,Recruitment by patronage (QOG),"In your chosen country, to what extent are appointments to bureaucratic positions in the central government based on the political and/or personal connections of the applicant?",Inverted,QOG,Opinion - expert,2020,90
+40302.03,recruitment_patronage2,Meritocratic appointment,Recruitment not by patronage (VDEM),"To what extent are appointment decisions in the state administration [not] based on personal and political connections, as opposed to skills and merit?",None,VDEM,Opinion - expert,2023,179
+40401.01,procurement_data,Procurement data,Public procurement data,Procurement data and impact,None,GDB,Expert assessment,2021,109
+40501.01,administrative_systems,Administrative IT systems,Administrative IT systems,"Administrative IT systems (finance, HR, payroll and procurement systems)",None,GTMI,Government self-assessment,2022,198

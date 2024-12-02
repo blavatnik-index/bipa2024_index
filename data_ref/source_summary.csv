@@ -1,0 +1,18 @@
+﻿source_id,source_name,publisher,collection_type,ref_year,website
+bti,Bertelsmann Transformation Index 2024 (BTI),Bertelsmann Stiftung,Opinion (expert),2023,https://bti-project.org
+db,Doing Business 2020 (DB),World Bank,Opinion (business),2020,https://www.worldbank.org/en/businessready/doing-business-legacy
+eige,Gender Statistics Database (GSD),European Institute for Gender Equality,Statistical data (official statistics),2023,https://eige.europa.eu/gender-statistics/dgs
+gcb,Global Corruption Barometer (GCB),Transparency International,Opinion (general public),2019-2021,https://www.transparency.org/en/gcb
+gci,Global Cybersecurity Index 2020 (GCI),International Telecommunications Union,Assessment (self-assessment),2020,https://www.itu.int/epublications/publication/D-STR-GCI.01-2021-HTM-E
+gdb,Global Data Barometer (GDB),Data for Development Network,Assessment (external),2021,https://globaldatabarometer.org
+gtmi,GovTech Maturity Index 2022 (GTMI),World Bank,Assessment (self-assessment),2022,https://www.worldbank.org/en/programs/govtech/gtmi
+ilo,ILOSTAT (ILO),International Labor Organisation,Statistical data (official statistics),2023,https://ilostat.ilo.org
+isora,International Survey of Revenue Administration 2021 (ISORA),"CIAT, IMF, IOTA and OECD",Statistical data (administrative data return),2021,https://data.rafit.org
+lpi,Logistics Performance Index (LPI),World Bank,Opinion (business),2022,https://lpi.worldbank.org
+odin,Open Data Inventory 2022-23 (ODIN),Open Data Watch,Assessment (external),2022,https://odin.opendatawatch.com
+qog,Quality of Government Expert Survey 2020 (QOG),"Quality of Government Institute, University of Gothenburg",Opinion (expert),2020,http://qog.pol.gu.se
+roli,Rule of Law Index 2023 (ROLI),World Justice Project,Opinion (expert & general public),2016-2022,https://worldjusticeproject.org/rule-of-law-index
+sfm,Sendai Framework Monitor (SFM),UN,Assessment (self-assessment),2017-2023,https://unstats.un.org/sdgs/dataportal
+p21,Statistical Capacity Monitor (SCM),"PARIS21 (UN, EC, OECD, IMF & WB)",Assessment (expert),2019-2020,https://statisticalcapacitymonitor.org
+sgi,Sustainable Governance Indicators 2022 (SGI),Bertelsmann Stiftung,Opinion (expert),2022,http://sgi-network.org
+vdem,Varieties of Democracy dataset version 14 (VDEM),"V-Dem Institute, University of Gothenburg",Opinion (expert),2023,https://www.v-dem.net

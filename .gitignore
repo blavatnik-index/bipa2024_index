@@ -1,0 +1,9 @@
+.Rproj.user
+
+# ignore csv content except in specified directories
+*.csv
+!data_ref/*.csv
+!data_out/*.csv
+
+# ignore checking scripts
+999*

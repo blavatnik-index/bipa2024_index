@@ -1,0 +1,156 @@
+structure_id,metric,label,source_variable,source_label,scope,transformation
+10101.01,organisational_reform,Organisational reform,sgi_institutional_reform,To what extent does the government improve its strategic capacity by changing the institutional arrangements of governing?,oecd_eu,
+10101.02,institutional_monitoring,Institutional monitoring,sgi_self_monitoring,To what extent do actors within the government monitor whether institutional arrangements of governing are appropriate?,oecd_eu,
+10101.03,domestic_adaptation,Domestic adaptation,sgi_domestic_adaptation,To what extent does the government respond to international and supranational developments by adapting domestic government structures?,oecd_eu,
+10102.01,strategic_priorities,Setting strategic priorities,bti_govt_set_priorities,To what extent does the government set and maintain strategic priorities?,global,bti_rescale
+10102.02,resource_efficiency,Resource efficiency,bti_resource_efficiency,"To what extent does the government make efficient use of available human, financial and organizational resources?",global,bti_rescale
+10102.03,strategic_influence,Influence of strategy units,sgi_strategic_planning,How much influence do strategic planning units and bodies have on government decision-making?,global,sgi_rescale
+10102.04,review_priorities,Reviewing policy priorities,sgi_go_expertise,Does the government office/prime minister's office have the expertise to evaluate ministerial draft bills according to the government's priorities?,global,sgi_rescale
+10201.01,informal_coordination,Informal coordination,sgi_informal_coordination,How effectively do informal coordination mechanisms complement formal mechanisms of inter-ministerial coordination?,oecd_eu,
+10201.02,strategic_involvement,Involvement of strategy units,sgi_line_ministries,To what extent do line ministries involve the government office/prime minister's office in the preparation of policy proposals?,oecd_eu,
+10201.03,crossgovt_working,Cross-government working,sgi_official_coordination,How effectively do ministry officials/civil servants coordinate policy proposals?,oecd_eu,
+10202.01,international_collaboration,International collaboration,sgi_international_collaboration,To what extent is the government able to collaborate effectively with international efforts to foster global public goods?,oecd_eu,
+10301.01,right_to_info,Right to information,roli_right_to_info,Right to information,global,
+10301.02,access_gov_info,Access to official information,sgi_access_gov_info,To what extent can citizens obtain official information,oecd_eu,
+10302.01,openness_portals,Open government and data portals,gtmi_openness,Open government and data portals,global,
+10302.03,published_law,Published laws,roli_published_law,Publicized laws and government data,global,
+10302.04,open_decisions,Openness of decision making,pii_open_decisions,Openness of meetings and decisions,oecd_eu,
+10302.05,openness_functions,Open government functions,pii_openness_functions,Supporting functions for open government,oecd_eu,
+10302.06,openness_regulations,Open government regulations,pii_openness_regulations,Regulations for open government,oecd_eu,
+10302.07,proactive_disclosure,Proactive information disclosure,pii_proactive_disclosures,Proactive disclosure of data and information,oecd_eu,
+10303.01,civic_consultation1,Consultation with social actors,sgi_civic_consultation,Does the government consult with societal actors in a fair and pluralistic manner?,global,sgi_rescale
+10303.02,civic_consultation2,Consultation with civil society,bti_public_consultation,To what extent does the political leadership consult civil society actors in their plurality in policymaking?,global,bti_rescale
+10303.03,complaint_mechanisms,Complaint mechanisms,roli_complaint_mechanisms,Complaint mechanisms,global,
+10303.04,digital_participation,Digital participation methods,gtmi_engagement,Digital methods for public participation,global,
+10303.05,primarylaw_engagement,Primary legislation engagement,ireg_primary_stakeholders,Stakeholder engagement practices for primary legislation,oecd_eu,
+10303.06,secondarylaw_engagement,Secondary legislation engagement,ireg_secondary_stakeholders,Stakeholder engagement practices for secondary legislation,oecd_eu,
+10303.07,consultation_practices,Consultation practices,pii_consultation_practices,Practices for public consultation,oecd_eu,
+10304.01,govt_communications,Government communications,sgi_coherent_comms,To what extent does the government achieve coherent communication?,oecd_eu,
+10401.01,impartial_implementation,Policy implementation is impartial,qog_impartial,"In your chosen country, how often do bureaucrats of the central government act impartially when implementing laws and regulations?",global,
+10401.02,interference_free,Decisions free of interference,qog_interference,"In your chosen country, how often is day-to-day bureaucratic decision-making subject to interference from individual politicians?",global,invert
+10401.03,administrative_processes,Respect for due process,roli_process_respected,Due process is respected in administrative proceedings,global,
+10401.04,impartial_duties,Officials impartial in their duties,vdem_impartial,Are public officials rigorous and impartial in the performance of their duties?,global,
+10402.01,officials_corrupt,Officials involved in corruption,gcb_corrupt_officials,How many of the following people do you think are involved in corruption or haven't you heard enough about them to say: Government officials,global,invert
+10402.02,favours_bribes,Officials accept bribes,vdem_favours,"How routinely do public sector employees grant favors in exchange for bribes, kickbacks, or other material inducements?",global,
+10402.03,misuse_resources,Officials misuse resources,vdem_theft,"How often do public sector employees steal, embezzle, or misappropriate public funds or other state resources for personal or family use?",global,
+10403.01,abuse_prosecuted,Officials prosecuted for abuse,bti_abuse_prosecuted,To what extent are public officeholders who abuse their positions prosecuted or penalized?,global,
+10403.02,misconduct_sanctioned,Officials sanctioned for misconduct,roli_misconduct_sanctioned,Government officials are sanctioned for misconduct,global,
+10404.01,integrity_framework,Framework for public integrity,pii_integrity_framework,Framework for public integrity in government institutions,oecd_eu,
+10405.01,conflict_interest,Conflict of interest safeguards,pii_conflict_of_interest,Safeguards against conflicts of interest,oecd_eu,
+10405.02,lobbying_transparency,Transparency of lobbying,pii_lobbying_transparency,Transparency of lobbyist activity,oecd_eu,
+10405.03,lobbying_regulation,Regulation of lobbying,pii_lobbying_regulations,Regulation of lobbyist activity,oecd_eu,
+10405.04,officials_postemployment,Senior officials post-employment activity,pii_officials_postemployment,Post-employment activity of senior officials,oecd_eu,
+10406.01,integrity_data,Data for public integrity,gdb_integrity,Integrity data availability and impact,global,
+10501.01,innovative_flexibility,Innovative and flexible approach,bti_innovative_flexible,How innovative and flexible is the government?,global,
+10501.02,digital_innovation,Digital innovation support,gtmi_innovation,Support for digital innovations within government,global,
+10501.03,tax_innovation,Innovative tax agency,isora_innovative_practices,Use of innovative practices and technologies by the tax administration,global,
+20101.01,coordinate_policy1,Coordinating policy proposals,sgi_cabinet_committees,How effectively do ministerial or cabinet committees coordinate cabinet proposals?,global,sgi_rescale
+20101.02,coordinate_policy2,Coordinating conflicting objectives,bti_policy_coordination,To what extent can the government coordinate conflicting objectives into a coherent policy?,global,bti_rescale
+20102.01,expert_advice,Expert advice in decision making,sgi_expert_advice,Does the government regularly take into account advice from non-governmental experts during decision-making?,oecd_eu,
+20103.01,evaluation_primarylaw,Evaluation of primary legislation,ireg_primary_evaluation,Use of evaluation for primacy legislation,oecd_eu,
+20103.02,evaluation_secondarylaw,Evaluation of secondary law,ireg_secondary_evaluation,Use of evaluation for secondary legislation,oecd_eu,
+20103.03,use_evaluation,Use of evaluation in policy making,sgi_evidence_based,To what extent do government ministries evaluate the effectiveness and/or efficiency of public policy and use results of evaluations for the revision of existing policy or development of new policies?,oecd_eu,
+20201.01,budget_documents,Contents of budget and finance documents,obs_documents,Availability and content of budget and public finance statements/reports,zzz_ignore,
+20202.01,finance_data,Public finance data,gdb_pubfin,Public finance data availability and governance,zzz_ignore,
+20203.01,budget_consultation,Public participation in budget processes,obs_consultation,"Public participation and consultation in budget processes, and content of any ""citizens"" budget(s)",zzz_ignore,
+20204.01,control_practices,Financial controls and risk management,pii_control_practices,Internal control and risk management practices,oecd_eu,
+20204.02,control_regulations,Regulations for financial control(s),pii_control_regulations,"Regulations for internal control, internal audit and risk management",oecd_eu,
+20204.03,control_oversight,Oversight of internal controls,pii_control_oversight,Oversight of internal control and internal audit functions,oecd_eu,
+20204.04,internal_audit,Internal audit activities,pii_internal_audit,Internal audit activities in central government,oecd_eu,
+20205.01,budget_oversight,Oversight of budget processes,obs_oversight,"Oversight of budget processes by legislative and audit institution, content of audit report(s), work of any indpendent fiscal institution",zzz_ignore,
+20301.01,ria_primary,RIA practices for primary legislation,ireg_primary_ria,Use of impact assessment for primary legislation,oecd_eu,
+20301.02,ria_secondary,RIA practices for secondary legislation,ireg_secondary_ria,Use of impact assessment for secondary legislation,oecd_eu,
+20301.03,ria_extent,Government assesses potential impacts,sgi_ria_application,"To what extent does the government assess the potential impacts of existing and prepared legal acts (regulatory impact assessments, RIA)?",oecd_eu,
+20301.04,ria_quality,Quality of impact assessment,sgi_ria_quality,"Does the RIA process ensure participation, transparency and quality evaluation?",oecd_eu,
+20301.05,ria_sustainability,Sustainability checks within RIA,sgi_ria_sustainability,Does the government conduct effective sustainability checks within the framework of RIA?,oecd_eu,
+20302.01,enforcement_effective,Regulations enforced effectively,roli_regulations_enforced_effectively,Government regulations are effectively enforced,global,
+20302.02,enforcement_proper,Regulations enforced properly,roli_regulations_enforced_properly,Government regulations are applied and enforced without improper influence,global,
+20302.03,regulatory_enforcement,Enforcement is effective and unbiased,sgi_regulatory_enforcement,"To what extent is government enforcing regulations in an effective and unbiased way, also against vested interests?",oecd_eu,
+20401.01,disaster_risk,Disaster risk reduction strategies,sfm_ddr_strategies,Disaster risk reduction strategies,global,
+20402.01,cyber_capacity,Cybersecurity capacity,gci_capacity_development,Capacity building measures,global,
+20402.02,cyber_cooperation,Cybersecurity cooperation,gci_cooperative_measures,Cooperative measures,global,
+20402.03,cyber_laws,Cybersecurity legal measures,gci_legal_measures,Legal measures,global,
+20402.04,cyber_organisational,Cybersecurity organisational measures,gci_organisational_measures,Organisational measures,global,
+20402.05,cyber_technical,Cybersecurity technical measures,gci_technical_measures,Technical measures,global,
+20501.01,data_governance,Governance of data and statistics,gdb_governance,Data governance,global,
+20501.02,data_capability,Data capability,gdb_capabilities,Data capability,global,
+20502.01,economic_statistics,Economic statistics availability,odin_economic_openness,Economic statistics openness,global,
+20502.02,company_data,Company data availability,gdb_company,Company data availability and impact,global,
+20502.03,land_data,Land data availability,gdb_land,Land data availability and impact,global,
+20502.04,social_statistics,Social statistics availability,odin_social_openness,Social statistics openness,global,
+20502.05,health_data,Health data availability,gdb_health,Health data availability,global,
+20502.06,environmental_statistics,Environmental statistics availability,odin_environmental_openness,Environmental statistics openness,global,
+20502.07,climate_data,Climate data availability,gdb_climate,Climate data availability,global,
+20502.08,data_availability,General data availability,our_data_availability,Data availability,oecd_eu,
+20503.01,econstats_coverage,Economic statistics coverage,odin_economic_coverage,Economic statistics coverage,global,
+20503.02,envirostats_coverage,Environmental statistics coverage,odin_environmental_coverage,Environmental statistics coverage,global,
+20503.03,socialstats_coverage,Social statistics coverage,odin_social_coverage,Social statistics coverage,global,
+20504.01,statistics_usage,Use of statistics in policy documents,p21_statistics_usage,Use of statistics in national policy documents,global,
+20504.02,data_accessibility,Accessibility of data,our_data_accessibility,Data accessibility,oecd_eu,
+20504.03,data_reuse,Support for data re-use,our_data_reuse,Support for re-use,oecd_eu,
+30101.01,policy_implementation1,Achieve policy objectives,sgi_achieve_objectives,To what extent can the government achieve its own policy objectives?,global,sgi_rescale
+30101.02,policy_implementation2,Implement policy objectives,bti_implement_policies,How effective is the government in implementing its own policies?,global,bti_rescale
+30102.01,policy_monitoring,Monitoring mechanisms,sgi_implement_policy,To what extent does the organization of government provide mechanisms to ensure that ministers implement the government's program?,oecd_eu,
+30102.02,monitor_ministries,Monitoring implementation by ministries,sgi_monitor_ministries,How effectively does the government office/prime minister's office monitor line ministry activities with regard to implementation?,oecd_eu,
+30102.03,monitor_agencies,Monitoring implementation by agencies,sgi_monitor_agencies,How effectively do federal and subnational ministries monitor the activities of bureaucracies/executive agencies with regard to implementation?,oecd_eu,
+30103.01,subnational_discretion,Ensure subnational discretion,sgi_subnational_discretion,To what extent does central government ensure that subnational self-governments may use their constitutional scope of discretion with regard to implementation?,oecd_eu,
+30103.02,subnational_funding,Funding subnational tasks,sgi_subnational_funding,To what extent does the central government ensure that tasks delegated to subnational self-governments are adequately funded?,oecd_eu,
+30103.03,subnational_standards,Setting subnational standards,sgi_subnational_standards,To what extent does central government ensure that subnational self-government realize national standards of public services?,oecd_eu,
+30201.01,digital_strategy,Digital government strategy,gtmi_policy,Strategy and policy for digital government,global,
+30201.02,digital_design,Digital services by default,dgi_digital_design,Digital by design,oecd_eu,
+30201.03,digital_open,Open services by default,dgi_open_default,Open by default,oecd_eu,
+30201.04,digital_data,Data driven services,dgi_data_driven,Data-driven public sector,oecd_eu,
+30202.01,backend_infrastructure,Technology and infrastructure,gtmi_backend,Back-end technologies and infrastructure,global,
+30202.02,technology_platform,Government as a platform,dgi_govt_as_platform,Government as a platform,oecd_eu,
+30202.03,website_search,Search optimisation of websites,egbr_findability,Findability of digital public services,oecd_eu,
+30202.04,website_speed,Page speed of websites,egbr_speed_interactive,Speed of digital public services,oecd_eu,invert
+30202.05,website_standards,Web security standards,egbr_web_security,Security of digital public services,oecd_eu,
+30203.01,proactive_design,Proactive service design and delivery,dgi_proactiveness,Proactiveness,oecd_eu,
+30203.02,userdriven_services,User-driven service design,dgi_user_driven,User-driven,oecd_eu,
+30203.03,website_accessibility,Accessibility of websites,egbr_wcag_tests,Accessibility of digital public services (WCAG tests),oecd_eu,
+30204.01,service_portals,Digital service portals,gtmi_portals,"Digital services and technologies for end-users (portals, epayment, digital signatures)",global,
+30204.02,eservice_information,Availability of public service information,egbr_service_information,Online availability of information about public services,oecd_eu,
+30204.03,eservice_availability,Availability of digital public services,egbr_service_availability,Availability of digital public services,oecd_eu,
+30204.04,eservice_delivery,Transparency of digital service delivery,egbr_service_delivery,Transparency of digital service delivery,oecd_eu,
+30204.05,eservice_enablers,Use of key enablers for digital services,egbr_key_enablers,Use of key enablers for digital services,oecd_eu,
+30301.01,tax_admincost,Administrative costs,isora_admin_costs,Administrative costs (% of revenue),global,invert
+30301.02,tax_staffturnover,Turnover of tax agency staff,isora_fte_turnover,Turnover of tax agency staff,global,median_distance
+30302.01,corptax_filing,Corporate taxes filed on-time,isora_filing_corporate,Corporate tax (% filed on-time),global,
+30302.02,perstax_filing,Personal taxes filed on-time,isora_filing_personal,Personal tax (% filed on-time),global,
+30302.03,corptax_payment,Corporate taxes paid on-time,isora_payments_corporate,Corporate tax (% paid on-time),global,
+30302.04,perstax_payment,Personal taxes paid on-time,isora_payments_personal,Personal tax (% paid on-time),global,
+30302.05,tax_time,Time to file taxes,db_taxes_time,Time to file business taxes,global,invert
+30302.06,tax_debt,Tax debts/arrears,isora_tax_debt,Tax debt (% of revenue),global,invert
+30303.01,etax_corporate,Corporate taxes filed electronically,isora_electronic_corporate,Electronic filing: corporate tax,global,
+30303.02,etax_personal,Personal taxes paid electronically,isora_electronic_personal,Electronic filing: personal tax,global,
+30303.03,etax_payment,Taxes paid electronically,isora_electronic_payments,Electronic payments (%),global,
+30303.04,etax_contacts,Digital channels for tax advice/help,isora_digital_contacts,Proportion of service contacts via digital channels,global,
+30401.01,customs_clearance,Efficiency of customs processes,lpi_customs_clearance,Efficiency of customs processes,global,
+40101.01,learning_development,Learning & development practices,pslc_learning_development,Learning and development practices in central government,oecd_eu,
+40201.01,recruitment_gender,Inclusive recruitment: gender,vdem_jobs_gender,Are state jobs equally open to qualified individuals regardless of gender?,global,
+40201.02,recruitment_location,Inclusive recruitment: location,vdem_jobs_location,Are state jobs equally open to qualified individuals regardless of their rural or urban location?,global,
+40201.03,recruitment_socioecon,Inclusive recruitment: socio-economic background,vdem_jobs_econ,Are state jobs equally open to qualified individuals regardless of socio-economic position?,global,
+40201.04,recruitment_social,Inclusive recruitment: social group,vdem_jobs_social,Are state jobs equally open to qualified individuals regardless of social group?,global,
+40201.05,recruitment_political,Inclusive recruitment: political affiliation,vdem_jobs_political,Are state jobs equally open to qualified individuals regardless of their association with a political group?,global,
+40201.06,diversity_practices,HR practices to promote gender diversity,pslc_diverse_workforce,Workforce gender diversity practices in central government,oecd_eu,
+40202.01,gender_pubadmin,Women in public administration (rate),zzz_gender_pubadmin,,global,gender_parity
+40202.02,gender_taxofficials,Women in tax agency workforce,isora_fte_female,Proportion of all tax officials that are female,global,gender_parity
+40202.03,gender_payratio,Ratio of female to male public-sector pay,ilo_ps_payratio,Public sector pay ratio: female-to-male,global,gender_payratio
+40202.98,,,ilo_pubad_female,Public administration: percent female,global,zzz_gender_all
+40202.99,,,ilo_pse_female,Public sector employment: percent female,global,zzz_gender_all
+40203.01,gender_managers,Women in public sector management,ilo_ps_mgrpro_female,Public sector managers: percent female,global,gender_parity
+40203.02,gender_seniormgrs,Women in senior public management,zzz_gender_senior,,oecd_eu,gender_parity
+40203.03,gender_seniortax,Women in senior tax agency roles,isora_execs_female,Proportion of senior tax officials that are female,global,gender_parity
+40203.98,,,eige_senior_women,Women in senior management roles,global,zzz_gender_senior
+40203.99,,,ilo_ps_snrmgr_female,Public sector senior managers: percent female,global,zzz_gender_senior
+40301.01,recruitment_level,Recruitment level of entry,qog_entry,"On average, do most ministries and other bureaucratic agencies of the central government in your chosen country resemble closed or open type of organizations?",global,invert
+40301.02,secure_tenure,Security of tenure,qog_tenure,"In your chosen country, to what extent do bureaucrats working in ministries and other bureaucratic agencies of the central government enjoy security of tenure?",global,
+40302.01,recruitment_merit,Recruitment by merit,qog_merit,"In your chosen country, to what extent are appointments to bureaucratic positions in the central government based on individuals' merits - such as knowledge, skills and job-related experience?",global,
+40302.02,recruitment_patronage1,Recruitment by patronage (QOG),qog_patronage,"In your chosen country, to what extent are appointments to bureaucratic positions in the central government based on the political and/or personal connections of the applicant?",global,invert
+40302.03,recruitment_patronage2,Recruitment not by patronage (VDEM),vdem_nepotism,"To what extent are appointment decisions in the state administration [not] based on personal and political connections, as opposed to skills and merit?",global,
+40303.01,snrmgr_framework,HR framework for senior management,pslc_senior_management,Employment framework for senior management,oecd_eu,
+40303.02,proactive_recruitment,Proactive recruitment practices,pslc_proactive_recruitment,Recruitment practices in central government,oecd_eu,
+40303.03,workforce_mobility,Workforce mobility practices,pslc_mobility_practices,Use of forms of mobility in central administrations,oecd_eu,
+40303.04,flexible_working,Flexible working arrangements,pslc_flexible_working,Flexible working arrangements in central government,oecd_eu,
+40401.01,procurement_data,Public procurement data,gdb_procurement,Procurement data and impact,global,
+40501.01,administrative_systems,Administrative IT systems,gtmi_admin,Administrative IT systems,global,
