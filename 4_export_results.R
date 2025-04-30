@@ -104,3 +104,4 @@ dq_out <- dqc_bipa2024$dq_data |>
   )
 
 readr::write_excel_csv(dq_out, "data_out/bipa2024_dq_scores.csv")
+readr::write_rds(dqc_bipa2024, "data_out/bipa2024_dqc_full.rds")
