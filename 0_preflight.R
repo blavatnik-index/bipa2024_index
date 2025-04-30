@@ -13,9 +13,9 @@ source("R/calculate.R")
 
 metrics_meta <- readr::read_csv("data_ref/metrics_metadata.csv")
 data_structure <- readr::read_csv("data_ref/data_structure.csv")
-cc_ref <- readr::read_csv("../bipa2024-cartography/entity_codes/entity_codes.csv")
-cc_geo <- readr::read_csv("../bipa2024-cartography/entity_codes/entity_georegions.csv")
-cc_wb <- readr::read_csv("../bipa2024-cartography/entity_codes/entity_wb_classification23.csv")
+cc_ref <- readr::read_csv("../bipa2024_cartography/entity_codes/entity_codes.csv")
+cc_geo <- readr::read_csv("../bipa2024_cartography/entity_codes/entity_georegions.csv")
+cc_wb <- readr::read_csv("../bipa2024_cartography/entity_codes/entity_wb_classification23.csv")
 
 # check data sets
 

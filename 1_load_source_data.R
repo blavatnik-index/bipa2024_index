@@ -1,9 +1,10 @@
 
 # source data
-source_files <- dir(
-  "../bipa2024-sourcedata/data_out", pattern = "\\.csv", full.names = TRUE
+source_data <- vroom::vroom(
+  dir(
+    "../bipa2024_sourcedata/data_out", pattern = "\\.csv", full.names = TRUE
+  )
 )
-source_data <- vroom::vroom(source_files)
 
 check_df(
   source_data, 
