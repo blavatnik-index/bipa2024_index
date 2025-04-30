@@ -80,7 +80,7 @@ sens1_4_index <- global_metrics |>
   ) |>
   # themes
   dplyr::mutate(
-    structure_id = floor(structure_id/100)*100
+    structure_id = floor(structure_id / 100) * 100
   ) |>
   dplyr::summarise(
     value = round(psych::geometric.mean(value + 1), 2) - 1,
@@ -88,7 +88,7 @@ sens1_4_index <- global_metrics |>
   ) |>
   # domains
   dplyr::mutate(
-    structure_id = floor(structure_id/10000)*10000
+    structure_id = floor(structure_id / 10000) * 10000
   ) |>
   dplyr::summarise(
     value = round(psych::geometric.mean(value + 1), 2) - 1,
@@ -96,7 +96,7 @@ sens1_4_index <- global_metrics |>
   ) |>
   # index
   dplyr::mutate(
-    structure_id = floor(structure_id/100000)*100000
+    structure_id = floor(structure_id / 100000) * 100000
   ) |>
   dplyr::summarise(
     value = round(psych::geometric.mean(value + 1), 2) - 1,

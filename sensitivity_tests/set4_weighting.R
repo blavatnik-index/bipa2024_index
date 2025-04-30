@@ -11,7 +11,8 @@ sens4_1_index <- global_metrics |>
     .by = c(cc_iso3c)
   ) |>
   dplyr::mutate(
-    rank = rank(-value, ties.method = "min"), .by = structure_id
+    rank = rank(-value, ties.method = "min"),
+    .by = structure_id
   ) |>
   dplyr::arrange(-value, cc_iso3c) |>
   dplyr::mutate(sens_test = "4_1_nowgt")
@@ -32,7 +33,7 @@ metric_weights <- metrics_meta |>
   tidyr::nest(.by = structure_id) |>
   dplyr::mutate(
     indicator_id = structure_id,
-    structure_id = floor(structure_id/100) * 100
+    structure_id = floor(structure_id / 100) * 100
   ) |>
   dplyr::mutate(
     rwgt_thm = dplyr::n(),
@@ -41,7 +42,7 @@ metric_weights <- metrics_meta |>
   tidyr::nest(.by = structure_id) |>
   dplyr::mutate(
     theme_id = structure_id,
-    structure_id = floor(structure_id/10000) * 10000
+    structure_id = floor(structure_id / 10000) * 10000
   ) |>
   dplyr::mutate(
     rwgt_dom = dplyr::n(),
@@ -59,8 +60,9 @@ metric_weights <- metrics_meta |>
     rwgt_total = 1 / (rwgt_ind * rwgt_thm * rwgt_dom * rwgt_idx),
     cwgt_total = dplyr::if_else(rwgt_total >= 0.02, 0.02, rwgt_total),
     nwgt_idx = dplyr::if_else(
-      rwgt_total >= 0.02, 0.02,
-      rwgt_total + ((1 - sum(cwgt_total))/sum(rwgt_total < 0.02))
+      rwgt_total >= 0.02,
+      0.02,
+      rwgt_total + ((1 - sum(cwgt_total)) / sum(rwgt_total < 0.02))
     )
   ) |>
   dplyr::select(structure_id = metric_id, contains("wgt"))

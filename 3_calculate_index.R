@@ -1,4 +1,3 @@
-
 bipa2024_metrics <- calculate_metrics(
   metrics_base,
   countries = dqc_bipa2024$countries,

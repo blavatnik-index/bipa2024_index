@@ -112,7 +112,7 @@ dq_out <- dqc_bipa2024$dq_data |>
   dplyr::left_join(cc_geo, by = "cc_iso3c") |>
   dplyr::left_join(cc_wb, by = "cc_iso3c") |>
   dplyr::mutate(
-    across(c(x_a, p_m), ~tidyr::replace_na(.x, 0)),
+    across(c(x_a, p_m), ~ tidyr::replace_na(.x, 0)),
     cc_status = dplyr::if_else(
       grepl("^UN member", cc_status),
       cc_status,

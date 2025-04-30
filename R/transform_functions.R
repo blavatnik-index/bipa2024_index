@@ -1,13 +1,11 @@
-
 scale_data <- function(df, transformation) {
-
-  if(!is.data.frame(df)) {
+  if (!is.data.frame(df)) {
     cli::cli_abort(c(
       "x" = "{.arg df} must be a data frame"
     ))
   }
 
-  if (!rlang::is_scalar_character(transformation)){
+  if (!rlang::is_scalar_character(transformation)) {
     cli::cli_abort(c(
       "x" = "{.arg transformation} must be a character vector of length 1"
     ))
@@ -15,11 +13,9 @@ scale_data <- function(df, transformation) {
 
   df |>
     dplyr::mutate(value = scale_value(value, transformation))
-
 }
 
 scale_value <- function(x, transformation = NULL) {
-
   if (is.null(transformation)) {
     transformation <- ""
   } else if (is.na(transformation)) {
@@ -45,19 +41,17 @@ scale_value <- function(x, transformation = NULL) {
   } else {
     .rescale_simple(x)
   }
-
 }
 
 # basic rescaling of a vector
 .rescale_simple <- function(x, to = c(0, 1)) {
-
-  if(!is.numeric(x)){
+  if (!is.numeric(x)) {
     cli::cli_abort(c(
       "x" = "{.arg x} must be a numeric vector"
     ))
   }
 
-  if(!rlang::is_bare_double(to, 2)){
+  if (!rlang::is_bare_double(to, 2)) {
     cli::cli_abort(c(
       "x" = "{.arg to} must be a numeric vector of length 2"
     ))
@@ -67,8 +61,12 @@ scale_value <- function(x, transformation = NULL) {
 }
 
 # rescale based on a distance
-.rescale_distance <- function(x, dist_from = NULL, to = c(0, 1), two_sided = FALSE) {
-
+.rescale_distance <- function(
+  x,
+  dist_from = NULL,
+  to = c(0, 1),
+  two_sided = FALSE
+) {
   if (is.null(dist_from)) {
     cli::cli_abort(
       c(
@@ -103,16 +101,14 @@ scale_value <- function(x, transformation = NULL) {
   }
 
   .distance_scaled(y, to = to, two_sided = two_sided)
-
 }
 
 # scale distances, use `two_sided = TRUE` to scale each side separately
 .distance_scaled <- function(x, to = c(0, 1), two_sided = FALSE) {
-
   if (!is.numeric(x)) {
     cli::cli_abort(c(
-      "x" = "{.arg x} must be a numeric vector")
-    )
+      "x" = "{.arg x} must be a numeric vector"
+    ))
   }
 
   if (!rlang::is_bare_numeric(to, 2)) {
@@ -123,10 +119,10 @@ scale_value <- function(x, transformation = NULL) {
 
   if (!rlang::is_scalar_logical(two_sided)) {
     cli::cli_abort(c(
-      "x" = "{.arg two_sided} must be {.cls TRUE} or {.cls FALSE}")
-    )
+      "x" = "{.arg two_sided} must be {.cls TRUE} or {.cls FALSE}"
+    ))
   }
-  
+
   if (two_sided) {
     x_p <- scales::rescale(x * (x >= 0), to = to)
     x_n <- scales::rescale(abs(x * (x <= 0)), to = to)
@@ -136,12 +132,10 @@ scale_value <- function(x, transformation = NULL) {
   }
 
   return(y)
-
 }
 
 gender_vars <- function(df, transformation = NULL) {
-  
-  if(!is.data.frame(df)) {
+  if (!is.data.frame(df)) {
     cli::cli_abort(c(
       "x" = "{.arg df} must be a data frame"
     ))
@@ -153,24 +147,22 @@ gender_vars <- function(df, transformation = NULL) {
     return(df)
   }
 
-  if(!rlang::is_scalar_character(transformation)) {
+  if (!rlang::is_scalar_character(transformation)) {
     cli::cli_abort(c(
       "x" = "{.arg transformation} must be a character vector of length 1"
     ))
   }
-  
+
   if (transformation == "zzz_gender_all") {
     return(.gender_all(df))
   } else if (transformation == "zzz_gender_senior") {
-    return(.gender_senior(df)) 
+    return(.gender_senior(df))
   } else {
     return(df)
   }
-
 }
 
 .gender_all <- function(df) {
-
   df_name <- rlang::as_name(rlang::enquo(df))
 
   .check_vars(df, c("ilo_pubad_female", "ilo_pse_female"), df_name)
@@ -189,11 +181,9 @@ gender_vars <- function(df, transformation = NULL) {
       variable = "zzz_gender_pubadmin"
     ) |>
     dplyr::select(cc_iso3c, ref_year, variable, value)
-
 }
 
 .gender_senior <- function(df) {
-
   df_name <- rlang::as_name(rlang::enquo(df))
 
   .check_vars(df, c("eige_senior_women", "ilo_ps_snrmgr_female"), df_name)
@@ -212,5 +202,4 @@ gender_vars <- function(df, transformation = NULL) {
       variable = "zzz_gender_senior"
     ) |>
     dplyr::select(cc_iso3c, ref_year, variable, value)
-
 }

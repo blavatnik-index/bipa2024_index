@@ -4,7 +4,7 @@
 # 2.1: use only the data quality score
 sens2_1_countries <- dqc_global$dq_data |>
   dplyr::filter(
-    x_a >= dqc_global$threshold_q & 
+    x_a >= dqc_global$threshold_q &
       !(cc_iso3c %in% dqc_global$excluded_cc) # maintain HKG exclusion
   ) |>
   dplyr::pull(cc_iso3c)
@@ -48,7 +48,8 @@ sens2_2_index <- sens2_2_metrics |>
 # 2.3: raise dq threshold to 2/3rds
 sens2_3_countries <- dqc_global$dq_data |>
   dplyr::filter(
-    x_a >= (dqc_global$dq_ref$x_a * 2/3) & p_m >= dqc_global$threshold_m &
+    x_a >= (dqc_global$dq_ref$x_a * 2 / 3) &
+      p_m >= dqc_global$threshold_m &
       !(cc_iso3c %in% dqc_global$excluded_cc) # maintain HKG exclusion
   ) |>
   dplyr::pull(cc_iso3c)

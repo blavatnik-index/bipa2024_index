@@ -10,11 +10,11 @@ sens3_1_indicators <- global_indicators |>
   dplyr::left_join(cc_geo, by = "cc_iso3c") |>
   dplyr::left_join(cc_wb, by = "cc_iso3c") |>
   dplyr::mutate(
-    geo_mean = mean(value, na.rm = TRUE), 
+    geo_mean = mean(value, na.rm = TRUE),
     .by = c(bipa_region, structure_id)
   ) |>
   dplyr::mutate(
-    inc_mean = mean(value, na.rm = TRUE), 
+    inc_mean = mean(value, na.rm = TRUE),
     .by = c(income_group, structure_id)
   ) |>
   dplyr::mutate(
@@ -42,13 +42,15 @@ impute_base <- global_indicators |>
 # 3.2: PMM imputation
 # predictive mean matching was used in InCiSE 2019 to handle missing data
 
-impute_pmm_mids <- impute_base |> 
+impute_pmm_mids <- impute_base |>
   mice::mice(method = "pmm")
 
 sens3_2_indicators <- impute_pmm_mids |>
   mice::complete(action = "stacked") |>
   tidyr::pivot_longer(
-    cols = -cc_iso3c, names_to = "name", values_to = "value"
+    cols = -cc_iso3c,
+    names_to = "name",
+    values_to = "value"
   ) |>
   dplyr::summarise(
     value = round(mean(value, na.rm = TRUE), 2),
@@ -67,13 +69,15 @@ sens3_2_index <- sens3_2_indicators |>
 # 3.3: CART imputation
 # imputation using classification and regression trees
 
-impute_cart_mids <- impute_base |> 
+impute_cart_mids <- impute_base |>
   mice::mice(method = "cart")
 
 sens3_3_indicators <- impute_cart_mids |>
   mice::complete(action = "stacked") |>
   tidyr::pivot_longer(
-    cols = -cc_iso3c, names_to = "name", values_to = "value"
+    cols = -cc_iso3c,
+    names_to = "name",
+    values_to = "value"
   ) |>
   dplyr::summarise(
     value = round(mean(value, na.rm = TRUE), 2),

@@ -1,10 +1,14 @@
-
-dq_countries <- function(df, scope = c("global", "oecd_eu", "all"), 
-                     metrics_df, threshold_q = NULL, threshold_m = NULL,
-                     threshold_t = NULL, ignore_cc = NULL) {
-  
+dq_countries <- function(
+  df,
+  scope = c("global", "oecd_eu", "all"),
+  metrics_df,
+  threshold_q = NULL,
+  threshold_m = NULL,
+  threshold_t = NULL,
+  ignore_cc = NULL
+) {
   scope <- rlang::arg_match(scope)
-  
+
   if (scope == "global") {
     df <- df |>
       dplyr::filter(scope == "global" & !is.na(metric))
@@ -12,22 +16,21 @@ dq_countries <- function(df, scope = c("global", "oecd_eu", "all"),
       dplyr::filter(scope == "global" & !is.na(metric))
   }
 
-
   exclude_cc <- .get_exclude_cc(df, ignore_cc)
-  
+
   metrics_df <- metrics_df |>
     dplyr::mutate(cc_iso3c = "ZZZ_REF", .before = 1)
 
   total_metrics <- nrow(metrics_df)
   total_themes <- metrics_df |>
-    dplyr::mutate(structure_id = floor(structure_id/100) * 100) |>
+    dplyr::mutate(structure_id = floor(structure_id / 100) * 100) |>
     dplyr::distinct(structure_id) |>
     nrow()
 
   dq_ref_themes <- df |>
     dplyr::mutate(structure_id = floor(structure_id)) |>
     dplyr::distinct(structure_id) |>
-    dplyr::mutate(structure_id = floor(structure_id/100)*100) |>
+    dplyr::mutate(structure_id = floor(structure_id / 100) * 100) |>
     dplyr::summarise(i_T = dplyr::n(), .by = structure_id)
 
   dq_ref <- metrics_df |>
@@ -40,11 +43,11 @@ dq_countries <- function(df, scope = c("global", "oecd_eu", "all"),
   }
 
   if (is.null(threshold_m)) {
-    threshold_m <- 2/3
+    threshold_m <- 2 / 3
   }
 
   if (is.null(threshold_t)) {
-    threshold_t <- 1/5
+    threshold_t <- 1 / 5
   }
 
   dq_data_themes <- df |>
@@ -60,6 +63,9 @@ dq_countries <- function(df, scope = c("global", "oecd_eu", "all"),
     ) |>
     .dqc_grade(threshold_q, threshold_m)
 
+  dq_grade_thresholds <- dq_data |>
+    .dqc_grade(threshold_q, threshold_m, show_intervals = TRUE)
+
   out <- list(
     n_countries = sum(dq_data$included),
     countries = sort(dq_data$cc_iso3c[dq_data$included]),
@@ -68,38 +74,35 @@ dq_countries <- function(df, scope = c("global", "oecd_eu", "all"),
     threshold_q = threshold_q,
     threshold_m = threshold_m,
     dq_data_themes = dq_data_themes,
+    dq_grade_thresholds = dq_grade_thresholds,
     excluded_cc = exclude_cc
   )
 
   return(out)
-
 }
 
 # calculate the number of metrics by indicator
 .dqc_indicators <- function(df) {
-  
   df <- df |>
-  dplyr::mutate(
-    structure_id = floor(structure_id)
-  ) |>
-  dplyr::summarise(
-    m_i = dplyr::n(), # number of metrics for indicator
-    .by = c(cc_iso3c, structure_id)
-  ) |>
-  tidyr::complete(cc_iso3c, structure_id, fill = list(m_i = 0))
-  
+    dplyr::mutate(
+      structure_id = floor(structure_id)
+    ) |>
+    dplyr::summarise(
+      m_i = dplyr::n(), # number of metrics for indicator
+      .by = c(cc_iso3c, structure_id)
+    ) |>
+    tidyr::complete(cc_iso3c, structure_id, fill = list(m_i = 0))
+
   return(df)
-  
 }
 
 # calculate data quality for themes
 # input df should be piped from .dq_indicators
 .dqc_themes <- function(df, ref_df, threshold_t) {
-
   df <- df |>
     dplyr::mutate(
       i_t = m_i > 0, # indicator has any data
-      structure_id = floor(structure_id/100) * 100
+      structure_id = floor(structure_id / 100) * 100
     ) |>
     dplyr::summarise(
       m_t = sum(m_i), # number of metrics in theme
@@ -107,27 +110,26 @@ dq_countries <- function(df, scope = c("global", "oecd_eu", "all"),
       .by = c(cc_iso3c, structure_id)
     ) |>
     dplyr::mutate(
-      p_t = m_t / max(m_t), .by = structure_id # percent of metrics for the theme
+      p_t = m_t / max(m_t),
+      .by = structure_id # percent of metrics for the theme
     )
-  
+
   df <- df |>
     dplyr::left_join(ref_df, by = "structure_id") |>
     dplyr::mutate(
-      x_t = ((m_t - i_t + 1) ^ 2) / i_T # theme information quotient
+      x_t = ((m_t - i_t + 1)^2) / i_T # theme information quotient
     )
-  
+
   if (!is.null(threshold_t)) {
     df <- df |> dplyr::mutate(include = p_t >= threshold_t)
-  } 
+  }
 
   return(df)
-
 }
 
 # calculate final data quality indicators
 # input df should be piped to from .dq_theme_coverage
 .dqc_overall <- function(df, n_metrics, n_themes) {
-
   df <- df |>
     dplyr::filter(i_t > 0) |>
     dplyr::summarise(
@@ -142,13 +144,11 @@ dq_countries <- function(df, scope = c("global", "oecd_eu", "all"),
     #   q_a = x_a * (n_t / n_themes) # coverage adjusted information quotient
     # ) |>
     dplyr::arrange(cc_iso3c)
-  
-  return(df)
 
+  return(df)
 }
 
 .dqc_grade <- function(df, threshold_q, threshold_m, show_intervals = FALSE) {
-  
   q_thresholds <- c(
     quantile(df$x_a[!(df$above_threshold)], c(0.5)),
     threshold_q,
@@ -175,45 +175,49 @@ dq_countries <- function(df, scope = c("global", "oecd_eu", "all"),
         TRUE ~ NA_character_
       )
     )
-  
+
   if (show_intervals) {
     return(
       list(
-        q_thresholds = q_thresholds, 
+        q_thresholds = q_thresholds,
         m_thresholds = m_thresholds,
         frequency = table(df$dq_grade),
-        frequency_pc = table(df$dq_grade)/nrow(df)
+        frequency_pc = table(df$dq_grade) / nrow(df)
       )
     )
   } else {
     return(df)
   }
-  
 }
 
 .get_exclude_cc <- function(df, ignore_cc) {
-
   exclude_cc <- character()
-  
+
   if (!is.null(ignore_cc)) {
     if (!is.character(ignore_cc)) {
-      cli::cli_abort(c(
-        "x" = "{.arg ignore_cc} must be a character vector"
-      ))
+      cli::cli_abort(
+        c(
+          "x" = "{.arg ignore_cc} must be a character vector"
+        )
+      )
     }
     valid_ignore <- ignore_cc %in% unique(df$cc_iso3c)
     if (sum(valid_ignore) == 0) {
-      cli::cli_warn(c(
-        "x" = "{.arg ignore_cc} does not contain any codes included in {.arg df}",
-        "!" = "codes not matching: {.arg ignore_cc}",
-        "i" = "will proceed without excluding any data"
-      ))
+      cli::cli_warn(
+        c(
+          "x" = "{.arg ignore_cc} does not contain any codes included in {.arg df}",
+          "!" = "codes not matching: {.arg ignore_cc}",
+          "i" = "will proceed without excluding any data"
+        )
+      )
     } else if (sum(valid_ignore) != length(ignore_cc)) {
-      cli::cli_warn(c(
-        "x" = "{.arg ignore_cc} contains country codes not included in {.arg df}",
-        "!" = "codes not matching: {ignore_cc[!valid_ignore]}",
-        "i" = "excluding data for: {ignore_cc[valid_ignore]}"
-      ))
+      cli::cli_warn(
+        c(
+          "x" = "{.arg ignore_cc} contains country codes not included in {.arg df}",
+          "!" = "codes not matching: {ignore_cc[!valid_ignore]}",
+          "i" = "excluding data for: {ignore_cc[valid_ignore]}"
+        )
+      )
       exclude_cc <- ignore_cc[valid_ignore]
     } else {
       cli::cli_alert_info(
@@ -224,12 +228,9 @@ dq_countries <- function(df, scope = c("global", "oecd_eu", "all"),
   }
 
   return(exclude_cc)
-
 }
 
-
 dq_exclude_lowdata <- function(df, theme_dq) {
-
   excluded_themes <- theme_dq |>
     dplyr::filter(!include) |>
     dplyr::mutate(cc_theme = paste(cc_iso3c, structure_id, sep = "_")) |>
@@ -237,11 +238,10 @@ dq_exclude_lowdata <- function(df, theme_dq) {
 
   df <- df |>
     dplyr::mutate(
-      cc_theme = paste(cc_iso3c, floor(structure_id/100) * 100, sep = "_")
+      cc_theme = paste(cc_iso3c, floor(structure_id / 100) * 100, sep = "_")
     ) |>
     dplyr::filter(!(cc_theme %in% excluded_themes)) |>
     dplyr::select(-cc_theme)
 
   return(df)
-
 }

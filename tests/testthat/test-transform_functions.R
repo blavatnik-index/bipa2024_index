@@ -20,7 +20,7 @@ testthat::test_that("distance_scaled", {
     c(0.5, 0.25, 0, 0.25, 0.5, 0.75, 1)
   )
   testthat::expect_equal(
-    .distance_scaled(-2:4, two_sided = TRUE), 
+    .distance_scaled(-2:4, two_sided = TRUE),
     c(1, 0.5, 0, 0.25, 0.5, 0.75, 1)
   )
 
@@ -41,15 +41,19 @@ testthat::test_that("rescale_distance", {
     c(0.5, 0.25, 0, 0.25, 0.5, 0.75, 1)
   )
   testthat::expect_equal(
-    .rescale_distance(1:7, dist_from = 3, two_sided = TRUE), 
+    .rescale_distance(1:7, dist_from = 3, two_sided = TRUE),
     c(1, 0.5, 0, 0.25, 0.5, 0.75, 1)
   )
   testthat::expect_equal(
-    .rescale_distance(sort(c(1:7, 1:3)), dist_from = "median"), 
+    .rescale_distance(sort(c(1:7, 1:3)), dist_from = "median"),
     c(0.5, 0.5, 0.25, 0.25, 0, 0, 0.25, 0.5, 0.75, 1)
   )
   testthat::expect_equal(
-    .rescale_distance(sort(c(1:7, 1:3)), dist_from = "median", two_sided = TRUE), 
+    .rescale_distance(
+      sort(c(1:7, 1:3)),
+      dist_from = "median",
+      two_sided = TRUE
+    ),
     c(1, 1, 0.5, 0.5, 0, 0, 0.25, 0.5, 0.75, 1)
   )
 
@@ -61,7 +65,7 @@ testthat::test_that("rescale_distance", {
 
 testthat::test_that("transformation_vars", {
   test_df <- tibble::tibble(
-    transformation = c("transform1","transform1","transform2", NA_character_),
+    transformation = c("transform1", "transform1", "transform2", NA_character_),
     source_variable = c("var1", "var2", "var3", "var4")
   )
 
@@ -93,14 +97,16 @@ testthat::test_that("scale_value", {
   testthat::expect_equal(scale_value(1:3, NA_character_), c(0, 0.5, 1))
   testthat::expect_equal(scale_value(1:3, "bti_rescale"), c(0, 0.4, 0.8))
   testthat::expect_equal(
-    scale_value(seq(0.3, 0.7, 0.1), "gender_parity"), c(0, 0.5, 1, 0.5, 0)
+    scale_value(seq(0.3, 0.7, 0.1), "gender_parity"),
+    c(0, 0.5, 1, 0.5, 0)
   )
   testthat::expect_equal(
-    scale_value(c(0.5, 0.75, 1, 2, 3), "gender_payratio"), c(0, 0.5, 1, 0.5, 0)
+    scale_value(c(0.5, 0.75, 1, 2, 3), "gender_payratio"),
+    c(0, 0.5, 1, 0.5, 0)
   )
   testthat::expect_equal(scale_value(1:3, "invert"), c(1, 0.5, 0))
   testthat::expect_equal(
-    scale_value(sort(c(1:7, 1:3)), "median_distance"), 
+    scale_value(sort(c(1:7, 1:3)), "median_distance"),
     c(0, 0, 0.5, 0.5, 1, 1, 0.75, 0.5, 0.25, 0)
   )
   testthat::expect_equal(scale_value(1:3, "sgi_rescale"), c(0.3, 0.65, 1))
@@ -134,26 +140,35 @@ testthat::test_that("gender variables", {
   test_df1 <- tibble::tibble(
     cc_iso3c = c("GBR", "GBR", "FRA", "DNK"),
     ref_year = rep(2023, 4),
-    variable = c("ilo_pubad_female", "ilo_pse_female", "ilo_pubad_female", "ilo_pse_female"),
+    variable = c(
+      "ilo_pubad_female",
+      "ilo_pse_female",
+      "ilo_pubad_female",
+      "ilo_pse_female"
+    ),
     value = 1:4
   )
   expect_df1 <- tibble::tibble(
     cc_iso3c = c("GBR", "FRA", "DNK"),
     ref_year = rep(2023, 3),
-   variable =  rep("zzz_gender_pubadmin", 3),
+    variable = rep("zzz_gender_pubadmin", 3),
     value = c(1, 3, 4)
   )
   test_df2 <- tibble::tibble(
     cc_iso3c = c("GBR", "GBR", "FRA", "DNK"),
     ref_year = rep(2023, 4),
-    variable = c("eige_senior_women", "ilo_ps_snrmgr_female", 
-      "eige_senior_women", "ilo_ps_snrmgr_female"),
+    variable = c(
+      "eige_senior_women",
+      "ilo_ps_snrmgr_female",
+      "eige_senior_women",
+      "ilo_ps_snrmgr_female"
+    ),
     value = 1:4
   )
   expect_df2 <- tibble::tibble(
     cc_iso3c = c("GBR", "FRA", "DNK"),
     ref_year = rep(2023, 3),
-   variable =  rep("zzz_gender_senior", 3),
+    variable = rep("zzz_gender_senior", 3),
     value = c(1, 3, 4)
   )
 
@@ -172,6 +187,8 @@ testthat::test_that("gender variables", {
   testthat::expect_error(gender_vars(test_df2, "zzz_gender_all"))
   testthat::expect_error(gender_vars(1, "zzz_gender_all"))
   testthat::expect_error(gender_vars(test_df1, 1))
-  testthat::expect_error(gender_vars(test_df1, c("zzz_gender_all", "zzz_gender_senior")))
+  testthat::expect_error(gender_vars(
+    test_df1,
+    c("zzz_gender_all", "zzz_gender_senior")
+  ))
 })
-

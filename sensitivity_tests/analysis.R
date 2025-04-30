@@ -20,8 +20,9 @@ sensitivity_tests <- dplyr::bind_rows(
 
 sensitivity_analysis_base <- sensitivity_tests |>
   dplyr::left_join(
-    global_index, 
-    by = c("cc_iso3c", "structure_id"), suffix = c("_sens", "_final")
+    global_index,
+    by = c("cc_iso3c", "structure_id"),
+    suffix = c("_sens", "_final")
   ) |>
   dplyr::mutate(
     # need to rescale value_final for test 1.3 (data re-scaled at each tier)
@@ -59,48 +60,58 @@ sensitivity_analysis <- sensitivity_analysis_base |>
   tidyr::nest(.by = sens_test) |>
   dplyr::mutate(
     n_countries = purrr::map_dbl(
-      .x = data, .f = ~sum(!is.na(.x$value_sens))
+      .x = data,
+      .f = ~ sum(!is.na(.x$value_sens))
     ),
     n_value_diff = purrr::map_dbl(
-      .x = data, .f = ~sum(.x$value_diff != 0, na.rm = TRUE)
+      .x = data,
+      .f = ~ sum(.x$value_diff != 0, na.rm = TRUE)
     ),
     n_value_diff5 = purrr::map_dbl(
-      .x = data, .f = ~sum(.x$value_diff_abs >= 0.05, na.rm = TRUE)
+      .x = data,
+      .f = ~ sum(.x$value_diff_abs >= 0.05, na.rm = TRUE)
     ),
     value_diff = purrr::map_dbl(
-      .x = data, .f = ~mean(.x$value_diff, na.rm = TRUE)
+      .x = data,
+      .f = ~ mean(.x$value_diff, na.rm = TRUE)
     ),
     value_diff_abs = purrr::map_dbl(
-      .x = data, .f = ~mean(.x$value_diff_abs, na.rm = TRUE)
+      .x = data,
+      .f = ~ mean(.x$value_diff_abs, na.rm = TRUE)
     ),
     n_rank_diff = purrr::map_dbl(
-      .x = data, .f = ~sum(.x$rank_diff != 0, na.rm = TRUE)
+      .x = data,
+      .f = ~ sum(.x$rank_diff != 0, na.rm = TRUE)
     ),
     n_rank_diff5 = purrr::map_dbl(
-      .x = data, .f = ~sum(.x$rank_diff >= 5, na.rm = TRUE)
+      .x = data,
+      .f = ~ sum(.x$rank_diff >= 5, na.rm = TRUE)
     ),
     rank_diff = purrr::map_dbl(
-      .x = data, .f = ~mean(.x$rank_diff, na.rm = TRUE)
+      .x = data,
+      .f = ~ mean(.x$rank_diff, na.rm = TRUE)
     ),
     rank_diff_abs = purrr::map_dbl(
-      .x = data, .f = ~mean(.x$rank_diff_abs, na.rm = TRUE)
+      .x = data,
+      .f = ~ mean(.x$rank_diff_abs, na.rm = TRUE)
     ),
     corr_pearson = purrr::map(
-      .x = data, .f = ~cor.test(.x$value_sens, .x$value_final)
+      .x = data,
+      .f = ~ cor.test(.x$value_sens, .x$value_final)
     ),
     corr_kendall = purrr::map(
       .x = data,
-      .f = ~cor.test(.x$value_sens, .x$value_final, method = "kendall")
+      .f = ~ cor.test(.x$value_sens, .x$value_final, method = "kendall")
     ),
-    r_pearson = purrr::map_dbl(.x = corr_pearson, .f = ~.x$estimate),
-    p_pearson = purrr::map_dbl(.x = corr_pearson, .f = ~.x$p.value),
+    r_pearson = purrr::map_dbl(.x = corr_pearson, .f = ~ .x$estimate),
+    p_pearson = purrr::map_dbl(.x = corr_pearson, .f = ~ .x$p.value),
     sig_pearson = dplyr::case_when(
       p_pearson <= 0.001 ~ "***",
       p_pearson <= 0.01 ~ "**",
       p_pearson <= 0.05 ~ "*"
     ),
-    r_kendall = purrr::map_dbl(.x = corr_kendall, .f = ~.x$estimate),
-    p_kendall = purrr::map_dbl(.x = corr_kendall, .f = ~.x$p.value),
+    r_kendall = purrr::map_dbl(.x = corr_kendall, .f = ~ .x$estimate),
+    p_kendall = purrr::map_dbl(.x = corr_kendall, .f = ~ .x$p.value),
     sig_kendall = dplyr::case_when(
       p_kendall <= 0.001 ~ "***",
       p_kendall <= 0.01 ~ "**",
@@ -126,7 +137,7 @@ sens_labels <- c(
   "4_2_capwgt" = "4.2 Capped weighting"
 )
 
-sensitivity_analysis_results <- sensitivity_analysis |> 
+sensitivity_analysis_results <- sensitivity_analysis |>
   dplyr::mutate(
     sens_test_label = sens_labels[sens_test],
     n_countries = n_countries - nrow(global_index),
@@ -136,38 +147,57 @@ sensitivity_analysis_results <- sensitivity_analysis |>
       TRUE ~ as.character(n_countries)
     ),
     across(
-      c(value_diff, value_diff_abs), 
-      ~scales::number(.x, 0.01)
-    ), 
+      c(value_diff, value_diff_abs),
+      ~ scales::number(.x, 0.01)
+    ),
     across(
-      c(rank_diff, rank_diff_abs), 
-      ~scales::number(.x, 0.1)
-    ), 
-    out_pearson = paste(scales::number(r_pearson, 0.001)), 
-    out_kendall = paste(scales::number(r_kendall, 0.001))) |>
+      c(rank_diff, rank_diff_abs),
+      ~ scales::number(.x, 0.1)
+    ),
+    out_pearson = paste(scales::number(r_pearson, 0.001)),
+    out_kendall = paste(scales::number(r_kendall, 0.001))
+  ) |>
   dplyr::select(
-    sens_test, sens_test_label, n_countries,
-    n_value_diff, n_value_diff5, value_diff, value_diff_abs,
-    n_rank_diff, n_rank_diff5, rank_diff, rank_diff_abs,
-    out_pearson, p_pearson, out_kendall, p_kendall
+    sens_test,
+    sens_test_label,
+    n_countries,
+    n_value_diff,
+    n_value_diff5,
+    value_diff,
+    value_diff_abs,
+    n_rank_diff,
+    n_rank_diff5,
+    rank_diff,
+    rank_diff_abs,
+    out_pearson,
+    p_pearson,
+    out_kendall,
+    p_kendall
   )
 
-readr::write_excel_csv(sensitivity_analysis_results, "data_out/bipa2024_sensitivity_results.csv")
+readr::write_excel_csv(
+  sensitivity_analysis_results,
+  "data_out/bipa2024_sensitivity_results.csv"
+)
 
 
 ggplot(
-  sensitivity_analysis_base |> 
+  sensitivity_analysis_base |>
     tidyr::drop_na() |>
     dplyr::mutate(sens_set = substr(sens_test, 1, 1))
-) + 
+) +
   geom_vline(xintercept = 0, colour = "#999999") +
   geom_density(
     aes(x = value_diff),
-    adjust = 2, colour = "#00629B", fill = "#00629B", alpha = 0.25
+    adjust = 2,
+    colour = "#00629B",
+    fill = "#00629B",
+    alpha = 0.25
   ) +
   scale_x_continuous(breaks = c(-0.1, 0, 0.1)) +
   facet_wrap(
-    vars(sens_test), scales = "fixed",
+    vars(sens_test),
+    scales = "fixed",
     labeller = as_labeller(sens_labels)
   ) +
   labs(
@@ -183,17 +213,21 @@ ggplot(
   )
 
 ggplot(
-  sensitivity_analysis_base |> 
+  sensitivity_analysis_base |>
     tidyr::drop_na() |>
     dplyr::mutate(sens_set = substr(sens_test, 1, 1))
-) + 
+) +
   geom_vline(xintercept = 0, colour = "#999999") +
   geom_density(
     aes(x = rank_diff),
-    adjust = 2, colour = "#00629B", fill = "#00629B", alpha = 0.25
+    adjust = 2,
+    colour = "#00629B",
+    fill = "#00629B",
+    alpha = 0.25
   ) +
   facet_wrap(
-    vars(sens_test), scales = "fixed",
+    vars(sens_test),
+    scales = "fixed",
     labeller = as_labeller(sens_labels)
   ) +
   labs(
@@ -211,16 +245,20 @@ ggplot(
 ggplot(
   sensitivity_analysis_base |> tidyr::drop_na(),
   aes(x = value_sens, y = value_final_raw)
-) + 
+) +
   geom_count(alpha = 0.25, colour = "#00629B") +
   scale_x_continuous(limits = c(0, 1), breaks = c(0, 1)) +
   scale_y_continuous(limits = c(0, 1), breaks = c(0, 1)) +
   coord_fixed() +
   facet_wrap(
-    vars(sens_test), scales = "fixed",
+    vars(sens_test),
+    scales = "fixed",
     labeller = as_labeller(sens_labels)
   ) +
-  labs(x = "Index score in sensitivity test", y = "Index score in final model") +
+  labs(
+    x = "Index score in sensitivity test",
+    y = "Index score in final model"
+  ) +
   theme_minimal(base_size = 10, base_family = "Open Sans") +
   theme(
     panel.grid.minor = element_blank(),
