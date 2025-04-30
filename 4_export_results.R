@@ -1,4 +1,3 @@
-
 bipa2024_all <- dplyr::bind_rows(
   bipa2024_index,
   bipa2024_domains,
@@ -6,12 +5,19 @@ bipa2024_all <- dplyr::bind_rows(
   bipa2024_indicators,
   bipa2024_metrics |>
     dplyr::select(
-      cc_iso3c, structure_id, value, rank
+      cc_iso3c,
+      structure_id,
+      value,
+      rank
     )
 ) |>
   dplyr::add_count(structure_id, rank, name = "rank_n") |>
   dplyr::mutate(
-    rank_label = dplyr::if_else(rank_n > 1, paste0("=", rank), as.character(rank))
+    rank_label = dplyr::if_else(
+      rank_n > 1,
+      paste0("=", rank),
+      as.character(rank)
+    )
   ) |>
   dplyr::select(-rank_n)
 
@@ -26,8 +32,10 @@ bipa2024_structure <- dplyr::bind_rows(
   dplyr::filter(structure_id %in% bipa2024_all$structure_id) |>
   dplyr::arrange(structure_id)
 
-readr::write_excel_csv(bipa2024_structure, "data_out/bipa2024_data_structure.csv")
-
+readr::write_excel_csv(
+  bipa2024_structure,
+  "data_out/bipa2024_data_structure.csv"
+)
 
 idx_doms_wide <- bipa2024_index |>
   dplyr::rename(index_value = value, index_rank = rank) |>
@@ -51,11 +59,18 @@ idx_doms_wide <- bipa2024_index |>
   dplyr::left_join(cc_geo, by = "cc_iso3c") |>
   dplyr::left_join(cc_wb, by = "cc_iso3c") |>
   dplyr::select(
-    cc_iso3c, cc_name_short, bipa_region, income_group, 
-    ends_with("value"), ends_with("rank")
+    cc_iso3c,
+    cc_name_short,
+    bipa_region,
+    income_group,
+    ends_with("value"),
+    ends_with("rank")
   )
 
-readr::write_excel_csv(idx_doms_wide, "data_out/bipa2024_index_domains_wide.csv")
+readr::write_excel_csv(
+  idx_doms_wide,
+  "data_out/bipa2024_index_domains_wide.csv"
+)
 
 idx_themes_wide <- bipa2024_index |>
   dplyr::rename(index_value = value, index_rank = rank) |>
@@ -79,11 +94,18 @@ idx_themes_wide <- bipa2024_index |>
   dplyr::left_join(cc_geo, by = "cc_iso3c") |>
   dplyr::left_join(cc_wb, by = "cc_iso3c") |>
   dplyr::select(
-    cc_iso3c, cc_name_short, bipa_region, income_group, 
-    ends_with("value"), ends_with("rank")
+    cc_iso3c,
+    cc_name_short,
+    bipa_region,
+    income_group,
+    ends_with("value"),
+    ends_with("rank")
   )
 
-readr::write_excel_csv(idx_themes_wide, "data_out/bipa2024_index_themes_wide.csv")
+readr::write_excel_csv(
+  idx_themes_wide,
+  "data_out/bipa2024_index_themes_wide.csv"
+)
 
 dq_out <- dqc_bipa2024$dq_data |>
   dplyr::full_join(cc_ref, by = "cc_iso3c") |>
@@ -92,15 +114,27 @@ dq_out <- dqc_bipa2024$dq_data |>
   dplyr::mutate(
     across(c(x_a, p_m), ~tidyr::replace_na(.x, 0)),
     cc_status = dplyr::if_else(
-      grepl("^UN member", cc_status), cc_status, "Non UN-member entity"
+      grepl("^UN member", cc_status),
+      cc_status,
+      "Non UN-member entity"
     ),
-    income_group = tidyr::replace_na(as.character(income_group), "Not classified"),
+    income_group = tidyr::replace_na(
+      as.character(income_group),
+      "Not classified"
+    ),
     included = tidyr::replace_na(included, FALSE),
     included = tolower(as.character(included))
   ) |>
   dplyr::select(
-    cc_name_short, cc_iso3c, cc_status, bipa_region, income_group,
-    dq_grade, x_a, p_m, included
+    cc_name_short,
+    cc_iso3c,
+    cc_status,
+    bipa_region,
+    income_group,
+    dq_grade,
+    x_a,
+    p_m,
+    included
   )
 
 readr::write_excel_csv(dq_out, "data_out/bipa2024_dq_scores.csv")
